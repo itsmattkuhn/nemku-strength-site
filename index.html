@@ -3,28 +3,271 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nemku Strength</title>
-<style>
-  :root { color-scheme: light dark; }
-  body {
-    max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 4rem;
-    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #1c1a17; background: #fbfaf5;
-  }
-  h1 { font-size: 1.6rem; line-height: 1.25; }
-  a { color: #4a5d3a; }
-  @media (prefers-color-scheme: dark) {
-    body { color: #e8e4dc; background: #1e1c19; }
-    a { color: #aec39a; }
-  }
-</style>
+<title>Nemku Strength — a strength plan that pays attention</title>
+<meta name="description" content="Nemku Strength is a privacy-first iOS strength-training coach. One tap to log a set, all data on your device, no accounts, no ads, no tracking.">
+<meta property="og:title" content="Nemku Strength">
+<meta property="og:description" content="A strength plan that pays attention. One-tap logging, on-device privacy, no accounts. Coming soon on iOS.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://strength.nemku.com/">
+<link rel="stylesheet" href="styles.css">
+<script src="nk.js"></script>
 </head>
 <body>
-<h1>Nemku Strength</h1>
-<p>A strength-training plan that adapts to what you actually do. Built by one lifter, for lifters.</p>
-<ul>
-  <li><a href="privacy/">Privacy policy</a></li>
-  <li><a href="support/">Support</a></li>
-</ul>
+
+  <!-- NAV -->
+  <nav class="nav" style="position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(10px); padding-left: clamp(20px,5vw,72px); padding-right: clamp(20px,5vw,72px);">
+    <span class="nav-brand" style="display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;">
+      <span style="width: 12px; height: 12px; background: var(--color-accent); display: inline-block;"></span>
+      Nemku Strength
+    </span>
+    <a href="#features">Features</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <button type="button" data-theme-toggle class="theme-toggle" title="Toggle theme" aria-label="Toggle light and dark theme">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <a href="#notify" class="btn btn-primary" style="text-decoration: none; white-space: nowrap;">Notify me</a>
+  </nav>
+
+  <!-- HERO -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: clamp(36px,6vw,88px) clamp(20px,5vw,72px) clamp(28px,4vw,56px); display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,72px); align-items: center; justify-content: space-between;">
+    <div style="flex: 1 1 420px; min-width: 320px;">
+      <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 600;">
+        <span style="width: 8px; height: 8px; background: var(--color-accent); display: inline-block;"></span>
+        Coming soon · iOS
+      </span>
+      <h1 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(40px,6vw,78px); line-height: 1.02; letter-spacing: -0.02em; margin: 22px 0 0; margin-left: -0.04em;">
+        <span style="display: block;">A strength plan</span>
+        <span style="display: block;">that pays attention.</span>
+      </h1>
+      <p style="font-size: 17px; line-height: 1.6; max-width: 46ch; margin: 26px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">
+        Nemku builds your training, adapts it to what you actually do, and stays out of the way while you lift. No accounts. No ads. No feed. Just you and the bar.
+      </p>
+
+      <div id="notify" data-notify style="margin-top: 34px; max-width: 460px;">
+        <form style="display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch;">
+          <input class="input" type="email" required placeholder="you@email.com" style="flex: 1 1 220px; min-height: 46px; font-size: 15px;">
+          <button type="submit" class="btn btn-primary" style="min-height: 46px; padding-left: 20px; padding-right: 20px; font-size: 14px;">Notify me at launch</button>
+        </form>
+        <p data-notify-help style="font-size: 13px; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 60%, transparent);">One email when it ships. Nothing else, ever.</p>
+        <div data-notify-done style="display: none; border-left: 2px solid var(--color-accent); padding: 14px 18px; background: var(--color-accent-100); animation: nk-fade .35s ease both;">
+          <p style="font-family: var(--font-heading); font-weight: 800; font-size: 18px; margin: 0; color: #8a4650;">You're on the list.</p>
+          <p style="font-size: 14px; margin: 6px 0 0; color: color-mix(in srgb, #1a1a1a 68%, transparent);">We'll email you once — the day it lands on the App Store.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TODAY PHONE -->
+    <div style="flex: 0 0 auto; margin: 0 auto;">
+      <div class="phone" style="width: 375px;">
+        <div><img src="assets/today.jpg" alt="Nemku Strength — today's workout"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF / STATS -->
+  <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,72px);"><hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);"></div>
+  <section style="max-width: 1180px; margin: 0 auto; padding: clamp(36px,4vw,56px) clamp(20px,5vw,72px);">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <div><div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">0</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Accounts to make</div></div>
+      <div><div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">0</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Ads &amp; trackers</div></div>
+      <div><div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">1</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Tap to log a set</div></div>
+      <div><div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">100%</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">On your device</div></div>
+    </div>
+  </section>
+
+  <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,72px);"><hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);"></div>
+
+  <!-- SHOWCASE: ONE-TAP LOG -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: clamp(48px,6vw,90px) clamp(20px,5vw,72px); display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,80px); align-items: center; justify-content: space-between;">
+    <div style="flex: 0 0 auto; margin: 0 auto; order: 1;">
+      <div class="phone" style="width: 340px;">
+        <div><img src="assets/logging.jpg" alt="Nemku Strength — logging a set"></div>
+      </div>
+    </div>
+    <div style="flex: 1 1 380px; min-width: 300px; order: 2;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 600;">One-tap logging</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,3.6vw,46px); line-height: 1.05; letter-spacing: -0.015em; margin: 18px 0 0;">Tap once.<br>Keep lifting.</h2>
+      <p style="font-size: 16.5px; line-height: 1.6; max-width: 42ch; margin: 22px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">The workout player runs your session set by set. One tap logs the set, starts your rest, and tees up the next one. A timer rides your Lock Screen and Dynamic Island — so the phone goes back in your pocket between sets.</p>
+      <p style="font-size: 16.5px; line-height: 1.6; max-width: 42ch; margin: 16px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">Prefer typing? Quick-log reads <b style="font-weight: 600; color: var(--color-text);">"bench 3&times;8 185"</b> and files it correctly, on device.</p>
+    </div>
+  </section>
+
+  <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,72px);"><hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);"></div>
+
+  <!-- SHOWCASE: PROGRESS -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: clamp(48px,6vw,90px) clamp(20px,5vw,72px); display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,80px); align-items: center; justify-content: space-between;">
+    <div style="flex: 1 1 380px; min-width: 300px;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 600;">Progress</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,3.6vw,46px); line-height: 1.05; letter-spacing: -0.015em; margin: 18px 0 0;">A point of view,<br>not just a chart.</h2>
+      <p style="font-size: 16.5px; line-height: 1.6; max-width: 42ch; margin: 22px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">Nemku reads your log and tells you the next move: which lift just set a peak, which muscle group is falling behind, where to spend this week. Estimated one-rep maxes and personal records track quietly over time.</p>
+      <ul style="list-style: none; padding: 0; margin: 26px 0 0;">
+        <li style="display: flex; gap: 14px; padding: 14px 0; border-top: 2px solid var(--color-divider); font-size: 15px;"><span style="font-family: var(--font-heading); font-weight: 800; color: var(--color-accent);">A</span><span><b style="font-family: var(--font-heading); font-weight: 800;">Muscle balance, on real anatomy.</b> See what's getting work and what's not, week by week.</span></li>
+        <li style="display: flex; gap: 14px; padding: 14px 0; border-top: 2px solid var(--color-divider); font-size: 15px;"><span style="font-family: var(--font-heading); font-weight: 800; color: var(--color-accent);">B</span><span><b style="font-family: var(--font-heading); font-weight: 800;">Trends that suggest an action.</b> "Ready for more load" — with a button to apply it.</span></li>
+      </ul>
+    </div>
+    <div style="flex: 0 0 auto; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 18px;">
+      <div class="phone" style="width: 340px;">
+        <div>
+          <img data-prog-img="0" src="assets/progress-overview.jpg" alt="Nemku Strength — exercise progress overview" style="display: block;">
+          <img data-prog-img="1" src="assets/progress-detail.jpg" alt="Nemku Strength — Bulgarian Split Squat progress detail" style="display: none;">
+        </div>
+      </div>
+      <div class="prog-tabs" data-prog role="tablist" aria-label="Progress views">
+        <button type="button" role="tab" data-prog-tab="0" aria-selected="true">Overview</button>
+        <button type="button" role="tab" data-prog-tab="1" aria-selected="false">Exercise detail</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES LIST -->
+  <div id="features" style="background: var(--color-surface);">
+    <section style="max-width: 1180px; margin: 0 auto; padding: clamp(48px,6vw,88px) clamp(20px,5vw,72px);">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 600; margin-bottom: 12px;">What's inside</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,3.8vw,52px); line-height: 1.03; letter-spacing: -0.02em; margin: 0 0 8px; max-width: 20ch;">A tracker that grew a coach.</h2>
+      <div style="margin-top: 34px;">
+        <div style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0;">
+          <p style="position: relative; font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin: 0;"><span style="position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; background: var(--color-accent);"></span>01</p>
+          <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; margin: 0;">Your plan, not a template</h3>
+          <p style="font-size: 15.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); max-width: 52ch;">Answer a few questions — or bring your own split — and get a week matched to your days, equipment and level. Skip, crush, or tweak a session and next week adapts. A rules-based engine, never a black box.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
+          <p style="position: relative; font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin: 0;"><span style="position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; background: var(--color-accent);"></span>02</p>
+          <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; margin: 0;">Trains around injuries</h3>
+          <p style="font-size: 15.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); max-width: 52ch;">Tell Nemku a nagging shoulder and it avoids the movements that aggravate it while preserving the muscle volume — through safe alternatives, not by dropping the work.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
+          <p style="position: relative; font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin: 0;"><span style="position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; background: var(--color-accent);"></span>03</p>
+          <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; margin: 0;">Knows your gym</h3>
+          <p style="font-size: 15.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); max-width: 52ch;">Set what each location has and Nemku only prescribes lifts you can actually do — swapping an unavailable exercise for an equivalent and capping overload to the weight you can load.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
+          <p style="position: relative; font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin: 0;"><span style="position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; background: var(--color-accent);"></span>04</p>
+          <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; margin: 0;">Quiet company</h3>
+          <p style="font-size: 15.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); max-width: 52ch;">A capybara named Capi lives in the app. He doesn't cheer, doesn't nag, and doesn't send notifications at 6am. He mostly just believes in you, quietly.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PRIVACY BAND -->
+  <section id="privacy" style="background: var(--band-bg); color: var(--band-fg);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: clamp(56px,7vw,110px) clamp(20px,5vw,72px);">
+      <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-400); font-weight: 600;"><span style="width: 8px; height: 8px; background: var(--color-accent);"></span>Yours, privately</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,5vw,72px); line-height: 1.02; letter-spacing: -0.02em; margin: 22px 0 0; max-width: 16ch;">No account. No server. No one watching.</h2>
+      <p style="font-size: 17px; line-height: 1.65; max-width: 52ch; margin: 26px 0 0; color: color-mix(in srgb, var(--band-fg) 82%, transparent);">Your training log lives on your phone and in your own private iCloud. The developer has no server and cannot see your data. Health metrics stay on device, full stop. Sync just works — no sign-in required.</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; background: color-mix(in srgb, var(--band-fg) 22%, transparent);">
+        <div style="background: var(--band-bg); padding: 28px 24px;"><div style="font-family: var(--font-heading); font-weight: 800; font-size: 20px;">On-device first</div><p style="font-size: 14.5px; line-height: 1.55; margin: 10px 0 0; color: color-mix(in srgb, var(--band-fg) 72%, transparent);">Everything works offline. iCloud only mirrors your own encrypted ledger.</p></div>
+        <div style="background: var(--band-bg); padding: 28px 24px;"><div style="font-family: var(--font-heading); font-weight: 800; font-size: 20px;">No analytics</div><p style="font-size: 14.5px; line-height: 1.55; margin: 10px 0 0; color: color-mix(in srgb, var(--band-fg) 72%, transparent);">No third-party SDKs, no tracking, no feed to scroll. Nothing to sell.</p></div>
+        <div style="background: var(--band-bg); padding: 28px 24px;"><div style="font-family: var(--font-heading); font-weight: 800; font-size: 20px;">Health, optional</div><p style="font-size: 14.5px; line-height: 1.55; margin: 10px 0 0; color: color-mix(in srgb, var(--band-fg) 72%, transparent);">Apple Health and Watch are opt-in. Deny them and every core flow still works.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH / HEALTH -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: clamp(48px,6vw,90px) clamp(20px,5vw,72px); display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,72px); align-items: center; justify-content: space-between;">
+    <div style="flex: 1 1 360px; min-width: 300px;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 600;">Apple Watch &amp; Health</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,3.6vw,46px); line-height: 1.05; letter-spacing: -0.015em; margin: 18px 0 0;">Every workout.<br>One history.</h2>
+      <p style="font-size: 16.5px; line-height: 1.6; max-width: 44ch; margin: 22px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">Runs and rides you record on your Watch — or in other apps — show up in your Nemku log with heart rate, distance and time. Finished sessions sync back to Apple Health and count toward your rings.</p>
+    </div>
+    <div style="flex: 0 0 auto; margin: 0 auto; width: 360px; max-width: 100%;">
+      <div style="background: #1b1916; border: 1px solid rgba(239,235,227,0.09); border-radius: 26px; padding: 22px; font-family: -apple-system,'SF Pro Display',system-ui,sans-serif; color: #efebe3; box-shadow: 0 30px 60px -30px rgba(45,43,43,0.5);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="width: 44px; height: 44px; border-radius: 12px; background: rgba(243,198,201,0.14); display: inline-flex; align-items: center; justify-content: center; color: #f3c6c9;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span>
+          <div><div style="font-size: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">Morning Run <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8e867a" stroke-width="2"><rect x="7" y="6" width="10" height="12" rx="2.5"/><path d="M9 6l.5-2.5h5L15 6M9 18l.5 2.5h5L15 18" stroke-linecap="round"/></svg></div><div style="font-size: 13px; color: #8e867a; margin-top: 2px;">Yesterday at 1:00 PM</div></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; background: #262320; border-radius: 16px; padding: 16px; margin-top: 16px; text-align: center;">
+          <div style="flex: 1;"><div style="font-size: 20px; font-weight: 700;">1</div><div style="font-size: 11.5px; color: #8e867a; margin-top: 2px;">Exercises</div></div>
+          <div style="flex: 1;"><div style="font-size: 20px; font-weight: 700;">3.11 mi</div><div style="font-size: 11.5px; color: #8e867a; margin-top: 2px;">Distance</div></div>
+          <div style="flex: 1;"><div style="font-size: 20px; font-weight: 700;">24:30</div><div style="font-size: 11.5px; color: #8e867a; margin-top: 2px;">Time</div></div>
+        </div>
+        <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 1.2px; color: #8e867a; margin: 18px 0 10px;">EXERCISES</div>
+        <div style="display: flex; align-items: center; gap: 12px; background: #262320; border-radius: 16px; padding: 14px;">
+          <span style="width: 34px; height: 34px; border-radius: 10px; background: rgba(243,198,201,0.14); display: inline-flex; align-items: center; justify-content: center; color: #f3c6c9;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span>
+          <span style="flex: 1;"><b style="font-weight: 700; font-size: 15px;">Running</b> <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.5px; color: #b5ae8f; border: 1px solid rgba(181,174,143,0.4); border-radius: 999px; padding: 2px 7px; margin-left: 4px;">PR</span><br><span style="font-size: 12.5px; color: #8e867a;">3.11 mi · 24:30</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING / PRO -->
+  <div id="pricing" style="background: var(--color-surface);">
+    <section style="max-width: 1180px; margin: 0 auto; padding: clamp(48px,6vw,88px) clamp(20px,5vw,72px);">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 600; margin-bottom: 12px;">Pricing</span>
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,3.8vw,52px); line-height: 1.03; letter-spacing: -0.02em; margin: 0;">Free to start.</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 36px; background: var(--color-divider);">
+        <div style="background: var(--color-bg); padding: clamp(24px,3vw,40px);">
+          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 24px;">Nemku</div>
+          <p style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 68%, transparent); margin: 6px 0 0;">Free, forever.</p>
+          <hr style="height: 2px; border: 0; background: var(--color-divider); margin: 22px 0;">
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 15px; line-height: 1.5;">
+            <li style="display: flex; gap: 10px; padding: 8px 0;"><span style="color: var(--color-accent); font-weight: 800;">—</span>Manual logging, every modality</li>
+            <li style="display: flex; gap: 10px; padding: 8px 0;"><span style="color: var(--color-accent); font-weight: 800;">—</span>Quick-log by typing</li>
+            <li style="display: flex; gap: 10px; padding: 8px 0;"><span style="color: var(--color-accent); font-weight: 800;">—</span>Progress charts &amp; PRs</li>
+            <li style="display: flex; gap: 10px; padding: 8px 0;"><span style="color: var(--color-accent); font-weight: 800;">—</span>Private iCloud sync</li>
+          </ul>
+        </div>
+        <div style="background: var(--color-bg); padding: clamp(24px,3vw,40px); position: relative;">
+          <div style="display: flex; align-items: center; gap: 10px;"><div style="font-family: var(--font-heading); font-weight: 800; font-size: 24px;">Nemku Pro</div><span class="tag tag-accent">Coming</span></div>
+          <p style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 68%, transparent); margin: 6px 0 0;">The adaptive coach, unlocked.</p>
+          <hr style="height: 2px; border: 0; background: var(--color-divider); margin: 22px 0;">
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 15px; line-height: 1.5;">
+            <li style="display: flex; gap: 10px; padding: 8px 0;"><span style="color: var(--color-accent); font-weight: 800;">—</span>The full plan engine &amp; weekly adaptation</li>
+            <li style="display: flex; gap: 10px; padding: 8px 0;"><span style="color: var(--color-accent); font-weight: 800;">—</span>Muscle-balance analysis on real anatomy</li>
+            <li style="display: flex; gap: 10px; padding: 8px 0;"><span style="color: var(--color-accent); font-weight: 800;">—</span>Train-around-injury &amp; gym profiles</li>
+            <li style="display: flex; gap: 10px; padding: 8px 0;"><span style="color: var(--color-accent); font-weight: 800;">—</span>Apple Watch &amp; Health, together</li>
+          </ul>
+          <p style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 20px 0 0;">Pricing announced at launch. Everyone who signs up hears first.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FAQ -->
+  <section id="faq" style="max-width: 900px; margin: 0 auto; padding: clamp(48px,6vw,88px) clamp(20px,5vw,72px);">
+    <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,3.8vw,48px); letter-spacing: -0.02em; margin: 0 0 28px;">Questions</h2>
+    <div>
+      <details style="border-top: 2px solid var(--color-divider); padding: 20px 0;"><summary style="font-family: var(--font-heading); font-weight: 800; font-size: 19px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px;">When does Nemku launch?<span style="color: var(--color-accent); font-weight: 800;">+</span></summary><p style="font-size: 15.5px; line-height: 1.6; margin: 14px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">Soon, on iOS. Leave your email above and you'll get one message the day it's on the App Store — nothing before, nothing after.</p></details>
+      <details style="border-top: 2px solid var(--color-divider); padding: 20px 0;"><summary style="font-family: var(--font-heading); font-weight: 800; font-size: 19px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px;">Do I need an account?<span style="color: var(--color-accent); font-weight: 800;">+</span></summary><p style="font-size: 15.5px; line-height: 1.6; margin: 14px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">No. There's no sign-up and no login. The app is fully usable the moment it launches, and sync rides your own private iCloud with no credentials to manage.</p></details>
+      <details style="border-top: 2px solid var(--color-divider); padding: 20px 0;"><summary style="font-family: var(--font-heading); font-weight: 800; font-size: 19px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px;">Is it free?<span style="color: var(--color-accent); font-weight: 800;">+</span></summary><p style="font-size: 15.5px; line-height: 1.6; margin: 14px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">Manual logging, quick-log, charts and iCloud sync are free forever. Nemku Pro unlocks the adaptive plan engine and muscle-balance analysis. Pricing is announced at launch.</p></details>
+      <details style="border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); padding: 20px 0;"><summary style="font-family: var(--font-heading); font-weight: 800; font-size: 19px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px;">What happens to my data?<span style="color: var(--color-accent); font-weight: 800;">+</span></summary><p style="font-size: 15.5px; line-height: 1.6; margin: 14px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">It stays yours. Your log lives on your device and in your private iCloud. There's no server the developer can read, no analytics, and no third parties. Health data never leaves the device.</p></details>
+    </div>
+  </section>
+
+  <!-- CLOSE POSTER -->
+  <section style="background: var(--color-accent); color: #1a1a1a;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: clamp(52px,6vw,100px) clamp(20px,5vw,72px);">
+      <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(36px,5.2vw,76px); line-height: 1.02; letter-spacing: -0.02em; margin: 0; margin-left: -0.04em; max-width: 16ch; color: #1a1a1a;">Be first to lift with it.</h2>
+      <p style="font-size: 17px; line-height: 1.6; max-width: 44ch; margin: 22px 0 0; color: color-mix(in srgb, #1a1a1a 78%, transparent);">One email at launch. No account, no ads, no follow-ups. Just the app, the day it ships.</p>
+      <div data-notify style="margin-top: 34px; max-width: 480px;">
+        <form style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <input type="email" required placeholder="you@email.com" style="flex: 1 1 220px; min-height: 48px; padding: 6px 14px; font: inherit; font-size: 15px; color: #1a1a1a; background: transparent; border: 1px solid color-mix(in srgb, #1a1a1a 45%, transparent); border-radius: 0;">
+          <button type="submit" style="min-height: 48px; padding: 0 22px; font-family: var(--font-heading); font-weight: 800; font-size: 14px; color: #1a1a1a; background: #f3f2f2; border: none; cursor: pointer;">Notify me at launch</button>
+        </form>
+        <div data-notify-done style="display: none; border: 1px solid color-mix(in srgb, #1a1a1a 40%, transparent); padding: 16px 20px; animation: nk-fade .35s ease both;">
+          <p style="font-family: var(--font-heading); font-weight: 800; font-size: 20px; margin: 0;">You're on the list.</p>
+          <p style="font-size: 14.5px; margin: 6px 0 0; color: color-mix(in srgb, #1a1a1a 78%, transparent);">We'll email you once — the day Nemku lands on the App Store.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="max-width: 1180px; margin: 0 auto; padding: clamp(32px,4vw,56px) clamp(20px,5vw,72px);">
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+      <span class="nav-brand" style="display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 18px; white-space: nowrap;"><span style="width: 12px; height: 12px; background: var(--color-accent); display: inline-block;"></span>Nemku Strength</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px;">
+        <a href="privacy/">Privacy</a>
+        <a href="support/">Support</a>
+        <a href="mailto:support@nemku.com">Contact</a>
+      </div>
+    </div>
+    <hr style="height: 2px; border: 0; background: var(--color-divider); margin: 24px 0;">
+    <p style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0;">© 2026 Nemku. Built by one lifter, for lifters. strength.nemku.com</p>
+  </footer>
+
 </body>
 </html>

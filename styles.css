@@ -1,0 +1,142 @@
+/* Nemku Strength — marketing site. Modernist design system with the app's pale-pink accent. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap');
+
+:root {
+  /* Modernist light theme */
+  --color-bg: #f3f2f2;
+  --color-surface: #eae9e9;
+  --color-text: #201e1d;
+  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+
+  --font-heading: "Archivo", system-ui, sans-serif;
+  --font-body: "Archivo", system-ui, sans-serif;
+
+  /* Accent — app pale-pink ramp (overrides Modernist red) */
+  --color-accent: #f2c3c8;
+  --color-accent-100: #fdf2f3;
+  --color-accent-200: #fbe6e8;
+  --color-accent-300: #f6d4d7;
+  --color-accent-400: #f2c3c8;
+  --color-accent-500: #e79fa7;
+  --color-accent-600: #d47f89;
+  --color-accent-700: #b25f6a;
+  --color-accent-800: #8a4650;
+  --color-accent-900: #5c2f36;
+
+  --band-bg: #201e1d;
+  --band-fg: #f3f2f2;
+}
+
+[data-theme="dark"] {
+  --color-bg: #151311;
+  --color-surface: #211e1a;
+  --color-text: #efebe3;
+  --color-divider: rgba(239, 235, 227, 0.13);
+  --band-bg: #0f0d0c;
+  --band-fg: #efebe3;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { color-scheme: light dark; }
+body {
+  margin: 0;
+  text-wrap: pretty;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  min-height: 100vh;
+}
+img { display: block; max-width: 100%; }
+
+a { color: var(--color-accent-700); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent-600); }
+[data-theme="dark"] a { color: var(--color-accent-400); }
+[data-theme="dark"] a:hover { color: var(--color-accent-300); }
+
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+@keyframes nk-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* — nav — */
+.nav {
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--color-divider);
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover { color: var(--color-accent-700); }
+[data-theme="dark"] .nav a:hover { color: var(--color-accent-400); }
+
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; padding: 0;
+  border: 2px solid var(--color-divider); background: transparent;
+  color: var(--color-text); cursor: pointer; flex: none;
+}
+.theme-toggle:hover { border-color: var(--color-accent); color: var(--color-accent-700); }
+[data-theme="dark"] .theme-toggle:hover { color: var(--color-accent-400); }
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 14px; line-height: 1.2; color: var(--color-text);
+  background: transparent; border: 1px solid transparent;
+  padding: 9px 16px;
+}
+.btn-primary { background: var(--color-accent); color: #1a1a1a !important; }
+.btn-primary:hover { background: var(--color-accent-500); }
+.btn-primary:active { background: var(--color-accent-600); }
+
+/* — input — */
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+
+/* — tag — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+[data-theme="dark"] .tag-accent { background: color-mix(in srgb, var(--color-accent) 22%, transparent); color: var(--color-accent-200); }
+
+/* progress segmented toggle */
+.prog-tabs {
+  display: flex; width: 300px; gap: 2px;
+  border: 2px solid var(--color-divider); background: var(--color-divider);
+}
+.prog-tabs button {
+  flex: 1 1 0; min-width: 0; white-space: nowrap; text-align: center;
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.02em; padding: 9px 12px; border: none; cursor: pointer;
+  background: var(--color-bg); color: color-mix(in srgb, var(--color-text) 62%, transparent);
+}
+.prog-tabs button:hover { color: var(--color-text); }
+.prog-tabs button[aria-selected="true"] { background: var(--color-accent); color: #1a1a1a; }
+
+/* phone mock */
+.phone {
+  background: #1b1916; border-radius: 52px; padding: 13px;
+  box-shadow: 0 40px 80px -30px rgba(45,43,43,0.55), 0 2px 6px rgba(45,43,43,0.2);
+  border: 1px solid rgba(0,0,0,0.4);
+}
+.phone > div { border-radius: 39px; overflow: hidden; }
+.phone img { width: 100%; height: auto; }
