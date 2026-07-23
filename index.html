@@ -9,6 +9,17 @@
 <meta property="og:description" content="A strength plan that pays attention. One-tap logging, on-device privacy, no accounts. Coming soon on iOS.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://strength.nemku.com/">
+<meta property="og:image" content="https://strength.nemku.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://strength.nemku.com/assets/og.png">
+<link rel="canonical" href="https://strength.nemku.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#f3f2f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151311" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script src="nk.js"></script>
 </head>
@@ -61,8 +72,8 @@
 
     <!-- TODAY PHONE -->
     <div style="flex: 0 0 auto; margin: 0 auto;">
-      <div class="phone" style="width: 375px;">
-        <div><img src="assets/today.jpg" alt="Nemku Strength — today's workout"></div>
+      <div class="phone phone-float" style="width: 375px;">
+        <div><img src="assets/today.jpg" alt="Nemku Strength — today's workout" width="359" height="780"></div>
       </div>
     </div>
   </section>
@@ -70,11 +81,11 @@
   <!-- PROOF / STATS -->
   <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,72px);"><hr style="height: 2px; border: 0; margin: 0; background: var(--color-divider);"></div>
   <section style="max-width: 1180px; margin: 0 auto; padding: clamp(36px,4vw,56px) clamp(20px,5vw,72px);">
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
-      <div><div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">0</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Accounts to make</div></div>
-      <div><div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">0</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Ads &amp; trackers</div></div>
-      <div><div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">1</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Tap to log a set</div></div>
-      <div><div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">100%</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">On your device</div></div>
+    <div class="grid-stats" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <div><div data-count="0" style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">0</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Accounts to make</div></div>
+      <div><div data-count="0" style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">0</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Ads &amp; trackers</div></div>
+      <div><div data-count="1" style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">1</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">Tap to log a set</div></div>
+      <div><div data-count="100" data-suffix="%" style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,3.6vw,52px); color: var(--color-accent-700); line-height: 1; margin-left: -0.04em;">100%</div><div style="font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 68%, transparent);">On your device</div></div>
     </div>
   </section>
 
@@ -84,7 +95,7 @@
   <section style="max-width: 1180px; margin: 0 auto; padding: clamp(48px,6vw,90px) clamp(20px,5vw,72px); display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,80px); align-items: center; justify-content: space-between;">
     <div style="flex: 0 0 auto; margin: 0 auto; order: 1;">
       <div class="phone" style="width: 340px;">
-        <div><img src="assets/logging.jpg" alt="Nemku Strength — logging a set"></div>
+        <div><img src="assets/logging.jpg" alt="Nemku Strength — logging a set" width="359" height="780" loading="lazy"></div>
       </div>
     </div>
     <div style="flex: 1 1 380px; min-width: 300px; order: 2;">
@@ -111,8 +122,8 @@
     <div style="flex: 0 0 auto; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 18px;">
       <div class="phone" style="width: 340px;">
         <div>
-          <img data-prog-img="0" src="assets/progress-overview.jpg" alt="Nemku Strength — exercise progress overview" style="display: block;">
-          <img data-prog-img="1" src="assets/progress-detail.jpg" alt="Nemku Strength — Bulgarian Split Squat progress detail" style="display: none;">
+          <img data-prog-img="0" src="assets/progress-overview.jpg" alt="Nemku Strength — exercise progress overview" width="359" height="780" loading="lazy" style="display: block;">
+          <img data-prog-img="1" src="assets/progress-detail.jpg" alt="Nemku Strength — Bulgarian Split Squat progress detail" width="359" height="780" loading="lazy" style="display: none;">
         </div>
       </div>
       <div class="prog-tabs" data-prog role="tablist" aria-label="Progress views">
@@ -128,22 +139,22 @@
       <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 600; margin-bottom: 12px;">What's inside</span>
       <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,3.8vw,52px); line-height: 1.03; letter-spacing: -0.02em; margin: 0 0 8px; max-width: 20ch;">A tracker that grew a coach.</h2>
       <div style="margin-top: 34px;">
-        <div style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0;">
+        <div class="feature-row" style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0;">
           <p style="position: relative; font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin: 0;"><span style="position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; background: var(--color-accent);"></span>01</p>
           <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; margin: 0;">Your plan, not a template</h3>
           <p style="font-size: 15.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); max-width: 52ch;">Answer a few questions — or bring your own split — and get a week matched to your days, equipment and level. Skip, crush, or tweak a session and next week adapts. A rules-based engine, never a black box.</p>
         </div>
-        <div style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
+        <div class="feature-row" style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
           <p style="position: relative; font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin: 0;"><span style="position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; background: var(--color-accent);"></span>02</p>
           <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; margin: 0;">Trains around injuries</h3>
           <p style="font-size: 15.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); max-width: 52ch;">Tell Nemku a nagging shoulder and it avoids the movements that aggravate it while preserving the muscle volume — through safe alternatives, not by dropping the work.</p>
         </div>
-        <div style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
+        <div class="feature-row" style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
           <p style="position: relative; font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin: 0;"><span style="position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; background: var(--color-accent);"></span>03</p>
           <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; margin: 0;">Knows your gym</h3>
           <p style="font-size: 15.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); max-width: 52ch;">Set what each location has and Nemku only prescribes lifts you can actually do — swapping an unavailable exercise for an equivalent and capping overload to the weight you can load.</p>
         </div>
-        <div style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
+        <div class="feature-row" style="display: grid; grid-template-columns: 64px minmax(0,300px) minmax(0,1fr); gap: 20px clamp(24px,4vw,64px); align-items: baseline; padding: 26px 0; border-top: 2px solid var(--color-divider);">
           <p style="position: relative; font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin: 0;"><span style="position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; background: var(--color-accent);"></span>04</p>
           <h3 style="font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -0.01em; margin: 0;">Quiet company</h3>
           <p style="font-size: 15.5px; line-height: 1.6; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); max-width: 52ch;">A capybara named Capi lives in the app. He doesn't cheer, doesn't nag, and doesn't send notifications at 6am. He mostly just believes in you, quietly.</p>
@@ -158,7 +169,7 @@
       <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-400); font-weight: 600;"><span style="width: 8px; height: 8px; background: var(--color-accent);"></span>Yours, privately</span>
       <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(34px,5vw,72px); line-height: 1.02; letter-spacing: -0.02em; margin: 22px 0 0; max-width: 16ch;">No account. No server. No one watching.</h2>
       <p style="font-size: 17px; line-height: 1.65; max-width: 52ch; margin: 26px 0 0; color: color-mix(in srgb, var(--band-fg) 82%, transparent);">Your training log lives on your phone and in your own private iCloud. The developer has no server and cannot see your data. Health metrics stay on device, full stop. Sync just works — no sign-in required.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; background: color-mix(in srgb, var(--band-fg) 22%, transparent);">
+      <div class="grid-privacy" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; background: color-mix(in srgb, var(--band-fg) 22%, transparent);">
         <div style="background: var(--band-bg); padding: 28px 24px;"><div style="font-family: var(--font-heading); font-weight: 800; font-size: 20px;">On-device first</div><p style="font-size: 14.5px; line-height: 1.55; margin: 10px 0 0; color: color-mix(in srgb, var(--band-fg) 72%, transparent);">Everything works offline. iCloud only mirrors your own encrypted ledger.</p></div>
         <div style="background: var(--band-bg); padding: 28px 24px;"><div style="font-family: var(--font-heading); font-weight: 800; font-size: 20px;">No analytics</div><p style="font-size: 14.5px; line-height: 1.55; margin: 10px 0 0; color: color-mix(in srgb, var(--band-fg) 72%, transparent);">No third-party SDKs, no tracking, no feed to scroll. Nothing to sell.</p></div>
         <div style="background: var(--band-bg); padding: 28px 24px;"><div style="font-family: var(--font-heading); font-weight: 800; font-size: 20px;">Health, optional</div><p style="font-size: 14.5px; line-height: 1.55; margin: 10px 0 0; color: color-mix(in srgb, var(--band-fg) 72%, transparent);">Apple Health and Watch are opt-in. Deny them and every core flow still works.</p></div>
@@ -198,7 +209,7 @@
     <section style="max-width: 1180px; margin: 0 auto; padding: clamp(48px,6vw,88px) clamp(20px,5vw,72px);">
       <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); font-weight: 600; margin-bottom: 12px;">Pricing</span>
       <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(30px,3.8vw,52px); line-height: 1.03; letter-spacing: -0.02em; margin: 0;">Free to start.</h2>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 36px; background: var(--color-divider);">
+      <div class="grid-pricing" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 36px; background: var(--color-divider);">
         <div style="background: var(--color-bg); padding: clamp(24px,3vw,40px);">
           <div style="font-family: var(--font-heading); font-weight: 800; font-size: 24px;">Nemku</div>
           <p style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 68%, transparent); margin: 6px 0 0;">Free, forever.</p>

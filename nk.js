@@ -39,6 +39,43 @@
       });
     });
 
+    // Scroll reveal + stat count-up. Skipped entirely under reduced motion,
+    // and no-JS visitors never get the hidden .reveal state.
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      var counters = document.querySelectorAll('[data-count]');
+      Array.prototype.forEach.call(counters, function (el) {
+        el.textContent = '0' + (el.getAttribute('data-suffix') || '');
+      });
+      function runCount(el) {
+        var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        var suffix = el.getAttribute('data-suffix') || '';
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var t = Math.min((ts - start) / 900, 1);
+          var eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        // rAF pauses in background tabs — make sure the final value always lands.
+        setTimeout(function () { el.textContent = target + suffix; }, 1100);
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('reveal-in');
+          Array.prototype.forEach.call(entry.target.querySelectorAll('[data-count]'), runCount);
+          io.unobserve(entry.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      Array.prototype.forEach.call(document.querySelectorAll('section, footer'), function (el) {
+        el.classList.add('reveal');
+        io.observe(el);
+      });
+    }
+
     // Progress segmented toggle — flip which screenshot shows (both stay mounted).
     var tablist = document.querySelector('[data-prog]');
     if (tablist) {
